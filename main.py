@@ -3,38 +3,25 @@ from flask import request
 
 app = Flask(__name__)
 
-@app.route("/ASDA")
+
+
+@app.route("/")
 def index():
+
     celsius = request.args.get("celsius", "")
     if celsius:
         fahrenheit = fahrenheit_from(celsius)
     else:
         fahrenheit = ""
+
     return (
         """<form action="" method="get">
                 Celsius temperature: <input type="text" name="celsius">
                 <input type="submit" value="Convert to Fahrenheit">
             </form>"""
         + "Fahrenheit: "
-        + fahrenheit
-    )
+        + fahrenheit)
 
-
-@app.route("/ASDA2")
-def index2():
-    celsius = request.args.get("celsius", "")
-    if celsius:
-        fahrenheit = fahrenheit_from(celsius)
-    else:
-        fahrenheit = ""
-    return (
-        """<form action="" method="get">
-                Celsius2 temperature: <input type="text" name="celsius">
-                <input type="submit" value="Convert to Fahrenheit">
-            </form>"""
-        + "Fahrenheit: "
-        + fahrenheit
-    )
 
 
 def fahrenheit_from(celsius):
@@ -48,3 +35,13 @@ def fahrenheit_from(celsius):
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=80, debug=True)
+
+
+
+
+request.args
+
+
+
+
+
